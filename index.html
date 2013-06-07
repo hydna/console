@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hydna Console</title>
+    <style>
+
+      html, body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 62.5%;
+        line-height: 1;
+        font-family: "droid-sans-1","droid-sans-2","helvetica neue",arial,sans-serif;
+        background: #F2F2F2;
+        background: #EDF2F1;
+        color: #333;
+        font-size: 16px;
+        -webkit-text-size-adjust: none;
+      }
+
+      body a {
+        text-decoration: none;
+        color: #4F8B99;
+        font-weight: bold;
+      }
+
+      .pane {
+        position: absolute;
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      .message-list {
+        position: absolute;
+
+        top: 0;
+        right: 0;
+        bottom: 35px;
+        left: 0;
+
+        list-style: none;
+        font-size: 14px;
+        margin: 0;
+        padding: 4px 0 0 0;
+
+        overflow: auto;
+      }
+
+      .message-list li {
+        padding: 2px 8px;
+        min-height: 10px;
+/*        white-space: pre;*/
+      }
+
+      .message-list li.error {
+        color: red;
+      }
+
+      .message-list li.indent {
+        text-indent: 12px;
+        color: #999;
+      }
+
+      .message-list code {
+        background-color: #ddd;
+      }
+
+      .message-list table {
+        border-spacing: 0px;
+        margin: 0;
+      }
+
+      .message-list td {
+        padding: 2px 8px;
+        min-height: 10px;
+        vertical-align: top;
+      }
+
+      .input-field {
+        position: absolute;
+
+        border-top: 1px solid #cacfce;
+        
+        font-size: 14px;
+        line-height: 30px;
+
+        height: 35px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      .input-field:before {
+        color: #FF5943;
+        padding-left: 8px;
+        content: ">>>";
+        font-size: 12px;
+        line-height: 30px;
+        font-weight: bold;
+      }
+
+      .input-field input {
+        position: absolute;
+        border: none;
+        background: none;
+        height: 30px;
+        right: 0;
+        left: 35px;
+        font-size: 14px;
+        outline: none;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <div id="console" class="pane"></div>
+    <script src="http://cdn.hydna.com/1/hydna.js"></script>
+    <script src="src/shellquote.js"></script>
+    <script src="src/utils.js"></script>
+    <script src="src/base.js"></script>
+    <script src="src/session.js"></script>
+    <script src="src/chanmon.js"></script>
+    <script src="src/commands/clear.js"></script>
+    <script src="src/commands/help.js"></script>
+    <script src="src/commands/open.js"></script>
+    <script src="src/commands/send.js"></script>
+    <script src="src/commands/emit.js"></script>
+    <script src="src/commands/close.js"></script>
+    <script>
+      var hydnaconsole = new Console();
+      hydnaconsole.appendTo(document.getElementById('console'));
+      hydnaconsole.focus();
+      hydnaconsole.echo('<b>Welcome to Hydna Console</b>');
+      hydnaconsole.echo('Type <code>help</code> for a list of available commands ' + 
+                        'or <code>help COMMAND</code> for help on a specific ' +
+                        'command');
+      
+    </script>
+    
+  </body>
+</html>
