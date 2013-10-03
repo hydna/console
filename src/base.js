@@ -73,6 +73,7 @@ function Console () {
 
 Console.prototype._initInterfaces = function () {
   var self = this;
+  var wrapper;
   var tmp;
 
   function onkeydown (e) {
@@ -86,9 +87,13 @@ Console.prototype._initInterfaces = function () {
   this._output.className = 'message-list';
   this._cmdinput = document.createElement('input');
 
+  wrapper = document.createElement('div');
+  wrapper.className = 'wrapper';
+  wrapper.appendChild(this._cmdinput);
+
   tmp = document.createElement('div');
   tmp.className = 'input-field';
-  tmp.appendChild(this._cmdinput);
+  tmp.appendChild(wrapper);
 
   this._view.appendChild(this._output);
   this._view.appendChild(tmp);
