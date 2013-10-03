@@ -67,8 +67,8 @@ OpenCommand.prototype.run = function (args) {
   }
 
   if (url.indexOf('?') !== -1) {
-    url = url.split('?')[0];
     token = url.split('?').slice(1).join('');
+    url = url.split('?')[0];
   }
 
   channel = session.openChannel(url, mode, token);
