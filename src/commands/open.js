@@ -87,7 +87,7 @@ OpenCommand.prototype.run = function (args) {
   };
 
   channel.onerror = function (err) {
-    console.echoError('Failed to open channel %s, reason %s', args[1], err.message);
+    console.echoError('Failed to open channel %s, reason %s', args[1], err.data);
     self.exit();
   };
 

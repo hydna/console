@@ -38,7 +38,7 @@ ChannelMonitor.prototype._initChannel = function (channel) {
 
   channel.onsignal = function (e) {
     console.echo('<b>[SIGNAL]</b> on %s', ref);
-    console.echoIndent(e.message);
+    console.echoIndent(e.data);
   };
 
   channel.onerror = function (e) {
@@ -49,7 +49,7 @@ ChannelMonitor.prototype._initChannel = function (channel) {
 
   channel.onclose = function (e) {
     console.echo('<b>[CLOSE]</b> on %s', ref);
-    console.echoIndent(e.message || '<i>&lt;no goodbye message&gt;</i>');
+    console.echoIndent(e.data || '<i>&lt;no goodbye message&gt;</i>');
     destroy();
   };
   
