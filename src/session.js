@@ -70,7 +70,10 @@ Session.prototype.closeChannel = function (urlOrChannel, message) {
   }
 
   if (channel) {
-    channel.close(message);
+    try {
+      channel.close(message);
+    } catch (err) {
+    }
   }
 
   delete this.channels[url];

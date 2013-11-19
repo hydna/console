@@ -86,7 +86,8 @@ OpenCommand.prototype.run = function (args) {
     self.exit();
   };
 
-  channel.onerror = function (err) {
+  channel.onclose = function (err) {
+    session.closeChannel(this);
     console.echoError('Failed to open channel %s, reason %s', args[1], err.data);
     self.exit();
   };
